@@ -5,7 +5,7 @@ import catImg from '../assets/cat.png'
 export function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false)
   const itWhatsappUrl =
-    'https://wa.me/628112645659?text=Halo%20Mas%20Don,%20saya%20membutuhkan%20bantuan%20sistem%20Dokumen%20Sekolahku.'
+    'https://wa.me/628112645659?text=Halo%20mas%20don,%20saya%20membutuhkan%20bantuan%20sistem%20Dokumen%20Sekolahku.'
 
   return (
     <>

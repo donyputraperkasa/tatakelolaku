@@ -24,10 +24,10 @@ export const SearchFilter: React.FC<SearchFilterProps> = ({
 }) => {
   const categories = [
     { key: '', label: 'Semua', count: counts.total },
-    { key: 'TK', label: 'TK', count: counts.tk },
-    { key: 'SD', label: 'SD', count: counts.sd },
-    { key: 'SMP', label: 'SMP', count: counts.smp },
     { key: 'SMA/K', label: 'SMA/K', count: counts.smak },
+    { key: 'SMP', label: 'SMP', count: counts.smp },
+    { key: 'SD', label: 'SD', count: counts.sd },
+    { key: 'TK', label: 'TK', count: counts.tk },
   ]
 
   return (
