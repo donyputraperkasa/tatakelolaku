@@ -8,7 +8,6 @@ interface SchoolCardProps {
 }
 
 export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) => {
-
   const handleDocClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string, type: string) => {
     if (!link || link.trim() === '') {
       e.preventDefault()
@@ -44,24 +43,24 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
       <div className="school-card-body">
         <div className="buttons-row-two">
           <a
-            // href={item.kurikulumLink || '#'}
-            // target={item.kurikulumLink ? '_blank' : undefined}
-            // rel="noopener noreferrer"
-            // onClick={(e) => handleDocClick(e, item.kurikulumLink, 'Kurikulum')}
+            href={item.kurikulumLink || '#'}
+            target={item.kurikulumLink ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            onClick={(e) => handleDocClick(e, item.kurikulumLink, 'Kurikulum')}
             className="card-btn btn-kurikulum"
-          // title={item.kurikulumLink ? 'Buka link upload kurikulum' : 'Link upload belum diisi'}
+            title={item.kurikulumLink ? 'Buka link upload kurikulum' : 'Link upload belum diisi'}
           >
             <Upload size={18} className="btn-icon" />
             <span>Kurikulum</span>
           </a>
 
           <a
-            // href={item.pimeLink || '#'}
-            // target={item.pimeLink ? '_blank' : undefined}
-            // rel="noopener noreferrer"
-            // onClick={(e) => handleDocClick(e, item.pimeLink, 'PIME')}
+            href={item.pimeLink || '#'}
+            target={item.pimeLink ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            onClick={(e) => handleDocClick(e, item.pimeLink, 'PIME')}
             className="card-btn btn-pime"
-            // title={item.pimeLink ? 'Buka link upload PIME' : 'Link upload belum diisi'}
+            title={item.pimeLink ? 'Buka link upload PIME' : 'Link upload belum diisi'}
           >
             <FileText size={18} className="btn-icon" />
             <span>PIME</span>
@@ -70,11 +69,11 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
 
         <div className="buttons-row-one">
           <a
-            // href={helpUrl}
-            // target="_blank"
-            // rel="noopener noreferrer"
+            href={helpUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="card-btn btn-hubungi"
-          // title="Hubungi admin melalui WhatsApp"
+            title="Hubungi admin melalui WhatsApp"
           >
             <HelpCircle size={19} className="btn-icon" />
             <span>hubungi kami</span>

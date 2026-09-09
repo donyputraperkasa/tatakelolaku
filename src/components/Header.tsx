@@ -10,10 +10,10 @@ export const Header: React.FC = () => {
         className="header-logo"
       />
       <h1 className="header-title">
-        Portal Upload Dokumen Sekolah
+        Dokumen Sekolah Unit Yayasan BOPKRI
       </h1>
       <p className="header-subtitle">
-        Yayasan BOPKRI Yogyakarta • Tahun Ajaran 2025/2026
+        Yayasan BOPKRI Yogyakarta • Tahun Ajaran 2026/2027
       </p>
     </header>
   )
