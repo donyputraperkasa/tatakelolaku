@@ -76,7 +76,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
             title="Hubungi admin melalui WhatsApp"
           >
             <HelpCircle size={19} className="btn-icon" />
-            <span>hubungi kami</span>
+            <span>Hubungi Kami</span>
           </a>
         </div>
       </div>

@@ -4,7 +4,7 @@ export const Announcement: React.FC = () => {
   return (
     <>
       <section className="quick-links-wrap">
-        <a
+        {/* <a
           href="https://wa.me/628112645659?text=Halo,%20saya%20ingin%20bertanya%20terkait%20portal%20upload%20dokumen%20sekolah."
           target="_blank"
           rel="noreferrer"
@@ -12,7 +12,7 @@ export const Announcement: React.FC = () => {
         >
           <Headset size={18} />
           Ada Kendala? Hubungi Kami
-        </a>
+        </a> */}
 
         <a
           href="https://docs.google.com/spreadsheets/d/1bmgj960GwqQ5YUDZa8NXpA1eOACAM5JZ/edit?gid=1555423969#gid=1555423969"
@@ -40,7 +40,7 @@ export const Announcement: React.FC = () => {
             kemudian klik tombol <strong>Upload Dokumen Kurikulum</strong> atau{' '}
             <strong>Upload Dokumen PIME</strong> untuk membuka tautan formulir/drive
             pengumpulan. Jika belum ada tautan atau membutuhkan bantuan, silakan klik tombol{' '}
-            <strong>Bingung ?? Hubungi Kami</strong>.
+            <strong>Hubungi Kami</strong>.
           </p>
         </div>
       </aside>
