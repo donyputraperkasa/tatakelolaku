@@ -147,7 +147,7 @@ export const data: SchoolItem[] = [
     id: 17,
     jenjang: 'SD',
     school: 'SD BOPKRI Sidomulyo 2',
-    kurikulumLink: 'https://drive.google.com/open?id=1FkNjUqse1AlwoxTSz8Ky-Eia29vv4PwP&usp=drive_copy',
+    kurikulumLink: 'https://drive.google.com/drive/folders/1ta6CxI4uCoPReGrXr3SI_KqfdT6wxEIw?usp=sharing',
     pimeLink: 'https://drive.google.com/drive/folders/1gMpYB4LUDi6IPU4fi4NMINPsf7bY73Q3?usp=sharing',
     pengampu: '628974543730',
   },
