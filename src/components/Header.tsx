@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
         className="header-logo"
       />
       <h1 className="header-title">
-        Dokumen Sekolah Unit Yayasan BOPKRI
+        Tata Kelola Sekolah BOPKRI
       </h1>
       <p className="header-subtitle">
         Yayasan BOPKRI Yogyakarta • Tahun Ajaran 2026/2027
