@@ -5,15 +5,15 @@ import { data as schoolsData, type SchoolItem } from './data';
 // ============================================================================
 
 // Tautan Rekaman Sesi Pleno / Zoom Awal (Berlaku untuk semua sekolah)
-export const generalLink = 'https://drive.google.com/drive/folders/1ZONmAvefi3d5wWtSWjf5BCGKhTFEAU4l?usp=sharing';
+export const generalLink = 'https://drive.google.com/file/d/1zqbi4Qo3_nSpNpUiFRZz-XPc_kLPK7Bx/view?usp=sharing';
 
 // Tautan Rekaman Breakout Room per Jenjang
 export const breakoutLinks: Record<'TK' | 'SD' | 'SMP' | 'SMA' | 'SMK', string> = {
-  TK: 'https://drive.google.com/drive/folders/1iJN8Et2Ymur4-Snw8Xkq9z_31rojxVcf?usp=sharing',
-  SD: 'https://drive.google.com/drive/folders/1S8RARzI6XWRU40Nxn1wDebTcR9j-kdHf?usp=sharing',
-  SMP: 'https://drive.google.com/drive/folders/1w3H_eZh3BRPD4IxPCOAaf3R2Z8OkCW0C?usp=sharing',
-  SMA: 'https://drive.google.com/drive/folders/1JVb2HE8Qv6g4t-bXTO71KhsRerdc42PR?usp=sharing',
-  SMK: 'https://drive.google.com/drive/folders/1JVb2HE8Qv6g4t-bXTO71KhsRerdc42PR?usp=sharing',
+  TK: 'https://drive.google.com/file/d/1UPABmgw46Mp0POLolfN5-Uq9-UinX6nC/view?usp=sharing',
+  SD: 'https://drive.google.com/file/d/1IB6684JsVmu5oVXYA1Iq-4qe4fTX92Zj/view?usp=sharing',
+  SMP: 'https://drive.google.com/file/d/1fw5ffh0hL7x760yjlxsvK72dP6UCILrG/view?usp=sharing',
+  SMA: 'https://drive.google.com/file/d/1Vj3Dc1MlKwq6R9JiWar8FI2489_lUdsG/view?usp=sharing',
+  SMK: 'https://drive.google.com/file/d/1Vj3Dc1MlKwq6R9JiWar8FI2489_lUdsG/view?usp=sharing',
 };
 
 // ============================================================================
