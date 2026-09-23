@@ -56,6 +56,13 @@ export function App() {
     }, 4000)
   }
 
+  const handleMissingRecordLink = (title: string) => {
+    setToastMessage(`⚠️ Link rekaman untuk "${title}" belum tersedia di Google Drive. Coba tanyakan masdon.`)
+    setTimeout(() => {
+      setToastMessage(null)
+    }, 4000)
+  }
+
   return (
     <div className="app-container">
       {/* Toast Notification */}
@@ -86,7 +93,7 @@ export function App() {
       />
 
       {/* Quick Links & Announcement */}
-      <Announcement />
+      <Announcement onMissingRecordLink={handleMissingRecordLink} />
 
       {/* School Cards List */}
       <main>

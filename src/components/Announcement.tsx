@@ -1,19 +1,41 @@
-import { FileCheck2, Info } from 'lucide-react'
+import React, { useState } from 'react'
+import { FileCheck2, Info, Video } from 'lucide-react'
+import { RecordModal } from './RecordModal'
 
-export const Announcement: React.FC = () => {
+interface AnnouncementProps {
+  onMissingRecordLink?: (title: string) => void
+}
+
+export const Announcement: React.FC<AnnouncementProps> = ({ onMissingRecordLink }) => {
+  const [isRecordModalOpen, setIsRecordModalOpen] = useState(false)
+
   return (
     <>
       <section className="quick-links-wrap">
         <a
-          href="https://docs.google.com/spreadsheets/d/1bmgj960GwqQ5YUDZa8NXpA1eOACAM5JZ/edit?gid=1555423969#gid=1555423969"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/template.xlsx"
+          download="template.xlsx"
           className="quick-link-btn quick-link-template"
         >
           <FileCheck2 size={18} />
-          Lihat Template File
+          Unduh Template File
         </a>
+
+        <button
+          type="button"
+          onClick={() => setIsRecordModalOpen(true)}
+          className="quick-link-btn quick-link-record"
+        >
+          <Video size={18} />
+          Record
+        </button>
       </section>
+
+      <RecordModal
+        isOpen={isRecordModalOpen}
+        onClose={() => setIsRecordModalOpen(false)}
+        onMissingLink={onMissingRecordLink}
+      />
 
       <aside className="announcement-box" id="panduan">
         <div className="announcement-icon-box">
