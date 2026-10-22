@@ -1,5 +1,5 @@
 import React from 'react'
-import { Upload, FileText, HelpCircle, School,  } from 'lucide-react'
+import { Upload, FileText, HelpCircle, School, Building2, Users } from 'lucide-react'
 import type { SchoolItem } from '../data/docs'
 
 interface SchoolCardProps {
@@ -8,13 +8,13 @@ interface SchoolCardProps {
 }
 
 export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) => {
-  const handleDocClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string, type: string) => {
+  const handleDocClick = (e: React.MouseEvent<HTMLAnchorElement>, link?: string, type?: string) => {
     if (!link || link.trim() === '') {
       e.preventDefault()
       if (onMissingLink) {
-        onMissingLink(item.school, type)
+        onMissingLink(item.school, type || 'Dokumen')
       } else {
-        alert(`Link upload ${type} untuk ${item.school} belum tersedia. Coba tanya masdon.`)
+        alert(`Link ${type || 'dokumen'} untuk ${item.school} belum tersedia. Coba tanya masdon.`)
       }
     }
   }
@@ -25,7 +25,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
     : defaultWa
   const formattedWa = waTarget.startsWith('0') ? `62${waTarget.slice(1)}` : waTarget
   const waMessage = encodeURIComponent(
-    `Halo, saya dari *${item.school}* membutuhkan bantuan terkait upload dokumen kurikulum / PIME.`
+    `Halo, saya dari *${item.school}* membutuhkan bantuan terkait tata kelola data sekolah (Kurikulum / PIME / Aset / Pegawai).`
   )
   const helpUrl = `https://wa.me/${formattedWa}?text=${waMessage}`
 
@@ -69,26 +69,26 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
 
         <div className="buttons-row-two">
           <a
-            href={item.kurikulumLink || '#'}
-            target={item.kurikulumLink ? '_blank' : undefined}
+            href={item.asetLink || '#'}
+            target={item.asetLink ? '_blank' : undefined}
             rel="noopener noreferrer"
-            onClick={(e) => handleDocClick(e, item.kurikulumLink, 'Kurikulum')}
-            className="card-btn btn-kurikulum"
-            title={item.kurikulumLink ? 'Buka link upload kurikulum' : 'Link upload belum diisi'}
+            onClick={(e) => handleDocClick(e, item.asetLink, 'Aset Sekolah')}
+            className="card-btn btn-aset"
+            title={item.asetLink ? 'Buka data aset sekolah' : 'Link aset sekolah belum diisi'}
           >
-            <Upload size={18} className="btn-icon" />
+            <Building2 size={18} className="btn-icon" />
             <span>Aset Sekolah</span>
           </a>
 
           <a
-            href={item.pimeLink || '#'}
-            target={item.pimeLink ? '_blank' : undefined}
+            href={item.pegawaiLink || '#'}
+            target={item.pegawaiLink ? '_blank' : undefined}
             rel="noopener noreferrer"
-            onClick={(e) => handleDocClick(e, item.pimeLink, 'PIME')}
-            className="card-btn btn-pime"
-            title={item.pimeLink ? 'Buka link upload PIME' : 'Link upload belum diisi'}
+            onClick={(e) => handleDocClick(e, item.pegawaiLink, 'Data Pegawai')}
+            className="card-btn btn-pegawai"
+            title={item.pegawaiLink ? 'Buka data pegawai (PSDM)' : 'Link data pegawai belum diisi'}
           >
-            <FileText size={18} className="btn-icon" />
+            <Users size={18} className="btn-icon" />
             <span>Data Pegawai</span>
           </a>
         </div>

@@ -50,7 +50,7 @@ export function App() {
   }, [search, selectedCategory])
 
   const handleMissingLink = (schoolName: string, docType: string) => {
-    setToastMessage(`⚠️ Link upload ${docType} untuk ${schoolName} belum tersedia. Coba tanyakan masdon.`)
+    setToastMessage(`⚠️ Link ${docType} untuk ${schoolName} belum tersedia. Coba tanyakan masdon.`)
     setTimeout(() => {
       setToastMessage(null)
     }, 4000)

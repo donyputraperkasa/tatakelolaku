@@ -287,6 +287,20 @@
   box-shadow: 0 6px 16px rgba(225, 29, 72, 0.12);
 }
 
+.quick-link-aset {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.quick-link-aset:hover {
+  background: #fef3c7;
+  border-color: #fcd34d;
+  color: #92400e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(180, 83, 9, 0.08);
+}
+
 /* Announcement Box */
 .announcement-box {
   display: flex;
@@ -465,12 +479,12 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 16px 16px;
-  min-height: 80px;
-  border-radius: 16px;
+  padding: 12px 14px;
+  min-height: 58px;
+  border-radius: 14px;
   border: 1px solid transparent;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 600;
   letter-spacing: -0.2px;
   box-sizing: border-box;
@@ -530,8 +544,43 @@
   background-color: #d3e4fb;
 }
 
-/* 3. Button Hubungi Kami (Soft Neutral Slate) */
+/* 3. Button Aset Sekolah (Warm Amber / Golden) */
+.btn-aset {
+  background-color: #fffbeb;
+  color: #b45309;
+  border-color: #fde68a;
+}
+
+.btn-aset:hover {
+  background-color: #fef3c7;
+  border-color: #fcd34d;
+  box-shadow: 0 6px 16px rgba(180, 83, 9, 0.08);
+}
+
+.btn-aset:active {
+  background-color: #fde68a;
+}
+
+/* 4. Button Data Pegawai (Soft Violet / Purple) */
+.btn-pegawai {
+  background-color: #f5f3ff;
+  color: #6d28d9;
+  border-color: #ddd6fe;
+}
+
+.btn-pegawai:hover {
+  background-color: #ede9fe;
+  border-color: #c4b5fd;
+  box-shadow: 0 6px 16px rgba(109, 40, 217, 0.08);
+}
+
+.btn-pegawai:active {
+  background-color: #ddd6fe;
+}
+
+/* 5. Button Hubungi Kami (Soft Neutral Slate) */
 .btn-hubungi {
+  min-height: 48px;
   background-color: #f8fafc;
   color: #334155;
   border-color: #e2e8f0;

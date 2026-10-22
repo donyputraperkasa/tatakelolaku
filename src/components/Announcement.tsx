@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FileCheck2, Info, Video } from 'lucide-react'
+import { FileCheck2, Info, Video, FileSpreadsheet } from 'lucide-react'
 import { RecordModal } from './RecordModal'
 
 interface AnnouncementProps {
@@ -29,6 +29,15 @@ export const Announcement: React.FC<AnnouncementProps> = ({ onMissingRecordLink 
           <Video size={18} />
           Record
         </button>
+
+        <a
+          href="/template-aset.xlsx"
+          download="template-aset.xlsx"
+          className="quick-link-btn quick-link-aset"
+        >
+          <FileSpreadsheet size={18} />
+          Unduh Template Inventaris
+        </a>
       </section>
 
       <RecordModal

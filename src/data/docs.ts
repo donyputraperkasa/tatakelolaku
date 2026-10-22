@@ -1,15 +1,20 @@
+import asetSchools from './aset';
+import psdmSchools from './psdm';
+
 export interface SchoolItem {
   id: number;
   jenjang: 'TK' | 'SD' | 'SMP' | 'SMA' | 'SMK';
   school: string;
   kurikulumLink: string;
   pimeLink: string;
+  asetLink?: string;
+  pegawaiLink?: string;
   pengampu: string;
 }
 
 export type DocItem = SchoolItem;
 
-export const docs: SchoolItem[] = [
+const rawDocs: SchoolItem[] = [
   // ==================== SMA ====================
   {
     id: 1,
@@ -316,6 +321,15 @@ export const docs: SchoolItem[] = [
     pengampu: '6289673707617',
   },
 ];
+
+const asetMap = new Map(asetSchools.map((item) => [item.school.trim(), item.link]));
+const psdmMap = new Map(psdmSchools.map((item) => [item.school.trim(), item.link]));
+
+export const docs: SchoolItem[] = rawDocs.map((school) => ({
+  ...school,
+  asetLink: asetMap.get(school.school.trim()) || '',
+  pegawaiLink: psdmMap.get(school.school.trim()) || '',
+}));
 
 export const data = docs;
 export default docs;
