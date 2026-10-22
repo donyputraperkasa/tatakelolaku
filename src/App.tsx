@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import './App.css'
-import { data as initialSchools } from './data/data'
+import { docs as initialSchools } from './data/docs'
 import { Header } from './components/Header'
 import { DashboardStats } from './components/DashboardStats'
 import { SearchFilter } from './components/SearchFilter'

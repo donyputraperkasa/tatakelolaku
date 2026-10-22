@@ -3,12 +3,12 @@ export default function CreateByMe() {
     <footer className="footer-developer-wrapper">
       <span className="footer-developer-label">developer by : </span>
       <a
-        href="https://portofolio-ku-gold.vercel.app/"
+        href="https://satelyd-official.vercel.app/"
         target="_blank"
         rel="noreferrer"
         className="footer-developer-link"
       >
-        dony putra perkasa
+        satelyd.id
       </a>
     </footer>
   )

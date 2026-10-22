@@ -1,6 +1,6 @@
 import React from 'react'
-import { Upload, FileText, HelpCircle, School } from 'lucide-react'
-import type { SchoolItem } from '../data/data'
+import { Upload, FileText, HelpCircle, School,  } from 'lucide-react'
+import type { SchoolItem } from '../data/docs'
 
 interface SchoolCardProps {
   item: SchoolItem
@@ -64,6 +64,32 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
           >
             <FileText size={18} className="btn-icon" />
             <span>PIME</span>
+          </a>
+        </div>
+
+        <div className="buttons-row-two">
+          <a
+            href={item.kurikulumLink || '#'}
+            target={item.kurikulumLink ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            onClick={(e) => handleDocClick(e, item.kurikulumLink, 'Kurikulum')}
+            className="card-btn btn-kurikulum"
+            title={item.kurikulumLink ? 'Buka link upload kurikulum' : 'Link upload belum diisi'}
+          >
+            <Upload size={18} className="btn-icon" />
+            <span>Aset Sekolah</span>
+          </a>
+
+          <a
+            href={item.pimeLink || '#'}
+            target={item.pimeLink ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            onClick={(e) => handleDocClick(e, item.pimeLink, 'PIME')}
+            className="card-btn btn-pime"
+            title={item.pimeLink ? 'Buka link upload PIME' : 'Link upload belum diisi'}
+          >
+            <FileText size={18} className="btn-icon" />
+            <span>Data Pegawai</span>
           </a>
         </div>
 

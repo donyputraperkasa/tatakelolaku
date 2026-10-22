@@ -1,7 +1,7 @@
 import React from 'react'
 import { School } from 'lucide-react'
 import { SchoolCard } from './SchoolCard'
-import type { SchoolItem } from '../data/data'
+import type { SchoolItem } from '../data/docs'
 
 interface SchoolListProps {
   schools: SchoolItem[]

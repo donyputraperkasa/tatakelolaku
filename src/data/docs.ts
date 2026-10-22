@@ -7,7 +7,9 @@ export interface SchoolItem {
   pengampu: string;
 }
 
-export const data: SchoolItem[] = [
+export type DocItem = SchoolItem;
+
+export const docs: SchoolItem[] = [
   // ==================== SMA ====================
   {
     id: 1,
@@ -315,4 +317,5 @@ export const data: SchoolItem[] = [
   },
 ];
 
-export default data;
+export const data = docs;
+export default docs;

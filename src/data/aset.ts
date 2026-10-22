@@ -1,0 +1,50 @@
+export type Jenjang = 'TK' | 'SD' | 'SMP' | 'SMA' | 'SMK';
+
+export interface SchoolAset {
+  id: number;
+  jenjang: Jenjang;
+  school: string;
+  link: string;
+}
+
+const schools: SchoolAset[] = [
+  { id: 1, jenjang: "SMA", school: "SMA BOPKRI 1 Yogyakarta", link: "" },
+  { id: 2, jenjang: "SMA", school: "SMA BOPKRI 2 Yogyakarta", link: "" },
+  { id: 3, jenjang: "SMK", school: "SMK BOPKRI 1 Yogyakarta", link: "" },
+  { id: 4, jenjang: "SMK", school: "SMK BOPKRI 2 Yogyakarta", link: "" },
+  { id: 5, jenjang: "SMP", school: "SMP BOPKRI 1 Yogyakarta", link: "" },
+  { id: 6, jenjang: "SMP", school: "SMP BOPKRI 2 Yogyakarta", link: "" },
+  { id: 7, jenjang: "SMP", school: "SMP BOPKRI 3 Yogyakarta", link: "" },
+  { id: 8, jenjang: "SMP", school: "SMP BOPKRI 5 Yogyakarta", link: "" },
+  { id: 9, jenjang: "SMP", school: "SMP BOPKRI Godean", link: "" },
+  { id: 10, jenjang: "SMP", school: "SMP BOPKRI Wonosari", link: "" },
+  { id: 11, jenjang: "SMP", school: "SMP BOPKRI 1 Wates", link: "" },
+  { id: 12, jenjang: "SD", school: "SD BOPKRI Gondolayu", link: "" },
+  { id: 13, jenjang: "SD", school: "SD BOPKRI Wirobrajan", link: "" },
+  { id: 14, jenjang: "SD", school: "SD BOPKRI Sidomulyo 1", link: "" },
+  { id: 15, jenjang: "SD", school: "SD BOPKRI Demangan III", link: "" },
+  { id: 16, jenjang: "SD", school: "SD BOPKRI Bintaran", link: "" },
+  { id: 17, jenjang: "SD", school: "SD BOPKRI Sidomulyo 2", link: "" },
+  { id: 18, jenjang: "SD", school: "SD BOPKRI Planjan", link: "" },
+  { id: 19, jenjang: "SD", school: "SD BOPKRI Palihan", link: "" },
+  { id: 20, jenjang: "SD", school: "SD BOPKRI Wonosari II", link: "" },
+  { id: 21, jenjang: "SD", school: "SD BOPKRI Wates 1", link: "" },
+  { id: 22, jenjang: "SD", school: "SD BOPKRI Temon", link: "" },
+  { id: 23, jenjang: "SD", school: "SD BOPKRI Turen", link: "" },
+  { id: 24, jenjang: "SD", school: "SD BOPKRI Minggir", link: "" },
+  { id: 25, jenjang: "SD", school: "SD BOPKRI Gunung Ijo", link: "" },
+  { id: 26, jenjang: "SD", school: "SD BOPKRI Karangwaru", link: "" },
+  { id: 27, jenjang: "TK", school: "KB-TK Kalyca Montessori School", link: "" },
+  { id: 28, jenjang: "TK", school: "TK BOPKRI Gondokusuman", link: "" },
+  { id: 29, jenjang: "TK", school: "TK BOPKRI Jatimulyo", link: "" },
+  { id: 30, jenjang: "TK", school: "TK BOPKRI Wirobrajan", link: "" },
+  { id: 31, jenjang: "TK", school: "TK BOPKRI Rewulu", link: "" },
+  { id: 32, jenjang: "TK", school: "TK BOPKRI Minggir", link: "" },
+  { id: 33, jenjang: "TK", school: "TK BOPKRI Wates", link: "" },
+  { id: 34, jenjang: "TK", school: "KB-TK BOPKRI Pelangi", link: "" },
+  { id: 35, jenjang: "TK", school: "TK BOPKRI Gondolayu", link: "" },
+  { id: 36, jenjang: "TK", school: "TK BOPKRI Karanggumuk", link: "" },
+  { id: 37, jenjang: "TK", school: "TK BOPKRI Gunung Ijo", link: "" },
+];
+
+export default schools;

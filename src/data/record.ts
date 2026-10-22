@@ -1,4 +1,4 @@
-import { data as schoolsData, type SchoolItem } from './data';
+import { docs as schoolsData, type SchoolItem } from './docs';
 
 // ============================================================================
 // 1. Tautan Rekaman Google Drive Utama
@@ -25,7 +25,7 @@ export interface SchoolRecord extends SchoolItem {
   unitLink: string;
 }
 
-// Otomatis menggabungkan data sekolah dari data.ts dengan link rekaman masing-masing jenjang
+// Otomatis menggabungkan data sekolah dari docs.ts dengan link rekaman masing-masing jenjang
 export const schoolRecords: SchoolRecord[] = schoolsData.map((item) => ({
   ...item,
   generalLink,
