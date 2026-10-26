@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import './App.css'
 import { docs as initialSchools } from './data/docs'
 import { Header } from './components/Header'
@@ -8,12 +8,13 @@ import { Announcement } from './components/Announcement'
 import { SchoolList } from './components/SchoolList'
 import CreateByMe from './components/CreateByMe'
 import FloatingContact from './components/floating-contact'
-import { AlertCircle } from 'lucide-react'
+import { AlertCircle, X } from 'lucide-react'
 
 export function App() {
   const [search, setSearch] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [toastMessage, setToastMessage] = useState<string | null>(null)
+  const toastTimeoutRef = useRef<number | null>(null)
 
   // Categorize counts for filter chips
   const counts = useMemo(() => {
@@ -49,27 +50,53 @@ export function App() {
     })
   }, [search, selectedCategory])
 
-  const handleMissingLink = (schoolName: string, docType: string) => {
-    setToastMessage(`⚠️ Link ${docType} untuk ${schoolName} belum tersedia. Coba tanyakan masdon.`)
-    setTimeout(() => {
+  const showToast = (message: string) => {
+    if (toastTimeoutRef.current) {
+      clearTimeout(toastTimeoutRef.current)
+    }
+    setToastMessage(message)
+    toastTimeoutRef.current = window.setTimeout(() => {
       setToastMessage(null)
     }, 4000)
   }
 
+  const handleMissingLink = (schoolName: string, docType: string) => {
+    showToast(`Link ${docType} untuk ${schoolName} belum tersedia. Coba tanyakan masdon.`)
+  }
+
   const handleMissingRecordLink = (title: string) => {
-    setToastMessage(`⚠️ Link rekaman untuk "${title}" belum tersedia di Google Drive. Coba tanyakan masdon.`)
-    setTimeout(() => {
-      setToastMessage(null)
-    }, 4000)
+    showToast(`Link rekaman untuk "${title}" belum tersedia di Google Drive. Coba tanyakan masdon.`)
   }
 
   return (
     <div className="app-container">
-      {/* Toast Notification */}
+      {/* Centered Toast / Alert Notification */}
       {toastMessage && (
-        <div className="toast-notice" role="alert">
-          <AlertCircle size={20} color="#facc15" />
-          <span>{toastMessage}</span>
+        <div
+          className="toast-backdrop"
+          onClick={() => setToastMessage(null)}
+          role="presentation"
+        >
+          <div
+            className="toast-notice"
+            role="alert"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="toast-icon-wrap">
+              <AlertCircle size={22} className="toast-icon" />
+            </div>
+            <div className="toast-text-wrap">
+              <span className="toast-text">{toastMessage}</span>
+            </div>
+            <button
+              type="button"
+              className="toast-close-btn"
+              onClick={() => setToastMessage(null)}
+              aria-label="Tutup notifikasi"
+            >
+              <X size={18} />
+            </button>
+          </div>
         </div>
       )}
 
