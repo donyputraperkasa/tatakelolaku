@@ -54,14 +54,14 @@ export const Announcement: React.FC<AnnouncementProps> = ({ onMissingRecordLink 
         <div>
           <p className="announcement-tag">Informasi Pengunggahan</p>
           <h2 className="announcement-title">
-            Pengumpulan Berkas Kurikulum & PIME Sekolah
+            Pengumpulan Berkas Tata Kelola Sekolah
           </h2>
           <p className="announcement-text">
             Bapak/Ibu perwakilan sekolah dipersilakan memilih kartu unit sekolah masing-masing,
-            kemudian klik tombol <strong>Upload Dokumen Kurikulum</strong> atau{' '}
-            <strong>Upload Dokumen PIME</strong> untuk membuka tautan formulir/drive
-            pengumpulan. Jika belum ada tautan atau membutuhkan bantuan, silakan klik tombol{' '}
-            <strong>Hubungi Kami</strong>.
+            kemudian klik tombol <strong>Kurikulum</strong>, <strong>PIME</strong>,{' '}
+            <strong>Aset Sekolah</strong>, atau <strong>Data Pegawai</strong> untuk membuka
+            tautan formulir/drive pengumpulan. Jika belum ada tautan atau membutuhkan bantuan,
+            silakan klik tombol <strong>Hubungi Kami</strong>.
           </p>
         </div>
       </aside>
