@@ -1,14 +1,6 @@
-import { Upload, FileText, Building2, Users, ClipboardCheck, type LucideIcon } from 'lucide-react'
+import { Upload, FileText, Building2, Users, ClipboardCheck } from 'lucide-react'
 import type { SchoolItem } from '../types'
-
-export interface SchoolDocMenu {
-  id: string
-  label: string
-  description: string
-  link?: string
-  icon: LucideIcon
-  btnClass: string
-}
+import type { SchoolDocMenu } from '../types'
 
 export function getSchoolDocMenus(school: SchoolItem): SchoolDocMenu[] {
   return [
@@ -46,8 +38,8 @@ export function getSchoolDocMenus(school: SchoolItem): SchoolDocMenu[] {
     },
     {
       id: 'supev',
-      label: 'Supervisi & Evaluasi',
-      description: 'Instrumen supervisi dan evaluasi sekolah',
+      label: 'Supervisi & Evaluasi Kinerja',
+      description: 'Dokumen supervisi dan evaluasi kinerja guru & pegawai di unit sekolah',
       link: school.supEvLink,
       icon: ClipboardCheck,
       btnClass: 'btn-supev',

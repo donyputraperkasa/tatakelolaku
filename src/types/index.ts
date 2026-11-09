@@ -1,3 +1,4 @@
+import { type LucideIcon } from 'lucide-react'
 export type Jenjang = 'TK' | 'SD' | 'SMP' | 'SMA' | 'SMK';
 
 export interface SchoolBaseLink {
@@ -36,5 +37,15 @@ export interface RecordingSession {
   jenjang?: string;
   link: string;
   description?: string;
+}
+
+
+export interface SchoolDocMenu {
+  id: string
+  label: string
+  description: string
+  link?: string
+  icon: LucideIcon
+  btnClass: string
 }
 

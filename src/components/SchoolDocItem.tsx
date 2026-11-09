@@ -1,6 +1,6 @@
 import React from 'react'
 import { ExternalLink, AlertCircle } from 'lucide-react'
-import type { SchoolDocMenu } from '../data/doc-menus'
+import type { SchoolDocMenu } from '../types'
 
 interface SchoolDocItemProps {
   menu: SchoolDocMenu
