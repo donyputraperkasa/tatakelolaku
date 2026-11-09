@@ -59,9 +59,10 @@ export const Announcement: React.FC<AnnouncementProps> = ({ onMissingRecordLink 
           <p className="announcement-text">
             Bapak/Ibu perwakilan sekolah dipersilakan memilih kartu unit sekolah masing-masing,
             kemudian klik tombol <strong>Kurikulum</strong>, <strong>PIME</strong>,{' '}
-            <strong>Aset Sekolah</strong>, atau <strong>Data Pegawai</strong> untuk membuka
-            tautan formulir/drive pengumpulan. Jika belum ada tautan atau membutuhkan bantuan,
-            silakan klik tombol <strong>Hubungi Kami</strong>.
+            <strong>Aset Sekolah</strong>, <strong>Data Pegawai</strong>, atau{' '}
+            <strong>Supervisi & Evaluasi</strong> untuk membuka tautan formulir/drive
+            pengumpulan. Jika belum ada tautan atau membutuhkan bantuan, silakan klik tombol{' '}
+            <strong>Hubungi Kami</strong>.
           </p>
         </div>
       </aside>

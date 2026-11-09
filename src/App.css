@@ -578,7 +578,24 @@
   background-color: #ddd6fe;
 }
 
-/* 5. Button Hubungi Kami (Soft Neutral Slate) */
+/* 5. Button Supervisi & Evaluasi (Soft Rose / Pink) */
+.btn-supev {
+  background-color: #fff1f2;
+  color: #be123c;
+  border-color: #fecdd3;
+}
+
+.btn-supev:hover {
+  background-color: #ffe4e6;
+  border-color: #fda4af;
+  box-shadow: 0 6px 16px rgba(190, 18, 60, 0.08);
+}
+
+.btn-supev:active {
+  background-color: #fecdd3;
+}
+
+/* 6. Button Hubungi Kami (Soft Neutral Slate) */
 .btn-hubungi {
   min-height: 48px;
   background-color: #f8fafc;

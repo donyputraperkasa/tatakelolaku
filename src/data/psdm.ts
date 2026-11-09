@@ -1,11 +1,4 @@
-export type Jenjang = 'TK' | 'SD' | 'SMP' | 'SMA' | 'SMK';
-
-export interface SchoolData {
-  id: number;
-  jenjang: Jenjang;
-  school: string;
-  link: string;
-}
+import type { SchoolData } from '../types';
 
 const schools: SchoolData[] = [
   { id: 1, jenjang: "SMA", school: "SMA BOPKRI 1 Yogyakarta", link: "https://docs.google.com/spreadsheets/d/1nLE6qh2aPBsWZy9ZbPWxCDpfL5L-1bj0/edit?usp=sharing&ouid=109274017374015768587&rtpof=true&sd=true" },

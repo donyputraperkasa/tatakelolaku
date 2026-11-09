@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { X, Video, ExternalLink, AlertCircle, ArrowLeft, Play } from 'lucide-react'
-import { recordingSessions, type RecordingSession } from '../data/record'
+import { recordingSessions } from '../data/record'
+import type { RecordingSession } from '../types'
 
 interface RecordModalProps {
   isOpen: boolean

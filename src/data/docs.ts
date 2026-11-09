@@ -1,18 +1,9 @@
 import asetSchools from './aset';
 import psdmSchools from './psdm';
+import supEvSchools from './sup-ev';
+import type { SchoolItem, DocItem } from '../types';
 
-export interface SchoolItem {
-  id: number;
-  jenjang: 'TK' | 'SD' | 'SMP' | 'SMA' | 'SMK';
-  school: string;
-  kurikulumLink: string;
-  pimeLink: string;
-  asetLink?: string;
-  pegawaiLink?: string;
-  pengampu: string;
-}
-
-export type DocItem = SchoolItem;
+export type { SchoolItem, DocItem };
 
 const rawDocs: SchoolItem[] = [
   // ==================== SMA ====================
@@ -324,11 +315,13 @@ const rawDocs: SchoolItem[] = [
 
 const asetMap = new Map(asetSchools.map((item) => [item.school.trim(), item.link]));
 const psdmMap = new Map(psdmSchools.map((item) => [item.school.trim(), item.link]));
+const supEvMap = new Map(supEvSchools.map((item) => [item.school.trim(), item.link]));
 
 export const docs: SchoolItem[] = rawDocs.map((school) => ({
   ...school,
   asetLink: asetMap.get(school.school.trim()) || '',
   pegawaiLink: psdmMap.get(school.school.trim()) || '',
+  supEvLink: supEvMap.get(school.school.trim()) || '',
 }));
 
 export const data = docs;

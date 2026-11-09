@@ -1,0 +1,40 @@
+export type Jenjang = 'TK' | 'SD' | 'SMP' | 'SMA' | 'SMK';
+
+export interface SchoolBaseLink {
+  id: number;
+  jenjang: Jenjang;
+  school: string;
+  link: string;
+}
+
+export type SchoolAset = SchoolBaseLink;
+export type SchoolData = SchoolBaseLink;
+export type SchoolSupEv = SchoolBaseLink;
+
+export interface SchoolItem {
+  id: number;
+  jenjang: Jenjang;
+  school: string;
+  kurikulumLink: string;
+  pimeLink: string;
+  asetLink?: string;
+  pegawaiLink?: string;
+  supEvLink?: string;
+  pengampu: string;
+}
+
+export type DocItem = SchoolItem;
+
+export interface SchoolRecord extends SchoolItem {
+  generalLink: string;
+  unitLink: string;
+}
+
+export interface RecordingSession {
+  id: string;
+  title: string;
+  jenjang?: string;
+  link: string;
+  description?: string;
+}
+

@@ -1,6 +1,6 @@
 import React from 'react'
-import { Upload, FileText, HelpCircle, School, Building2, Users } from 'lucide-react'
-import type { SchoolItem } from '../data/docs'
+import { Upload, FileText, HelpCircle, School, Building2, Users, ClipboardCheck } from 'lucide-react'
+import type { SchoolItem } from '../types'
 
 interface SchoolCardProps {
   item: SchoolItem
@@ -25,7 +25,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
     : defaultWa
   const formattedWa = waTarget.startsWith('0') ? `62${waTarget.slice(1)}` : waTarget
   const waMessage = encodeURIComponent(
-    `Halo, saya dari *${item.school}* membutuhkan bantuan terkait tata kelola data sekolah (Kurikulum / PIME / Aset / Pegawai).`
+    `Halo, saya dari *${item.school}* membutuhkan bantuan terkait tata kelola data sekolah (Kurikulum / PIME / Aset / Pegawai / Supervisi & Evaluasi).`
   )
   const helpUrl = `https://wa.me/${formattedWa}?text=${waMessage}`
 
@@ -90,6 +90,18 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
           >
             <Users size={18} className="btn-icon" />
             <span>Data Pegawai</span>
+          </a>
+
+          <a
+            href={item.supEvLink || '#'}
+            target={item.supEvLink ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            onClick={(e) => handleDocClick(e, item.supEvLink, 'Supervisi & Evaluasi')}
+            className="card-btn btn-supev"
+            title={item.supEvLink ? 'Buka data supervisi & evaluasi' : 'Link supervisi & evaluasi belum diisi'}
+          >
+            <ClipboardCheck size={18} className="btn-icon" />
+            <span>Supervisi & Evaluasi</span>
           </a>
         </div>
 
