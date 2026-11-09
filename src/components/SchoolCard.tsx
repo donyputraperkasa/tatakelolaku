@@ -1,6 +1,7 @@
-import React from 'react'
-import { Upload, FileText, HelpCircle, School, Building2, Users, ClipboardCheck } from 'lucide-react'
+import React, { useState } from 'react'
+import { FolderOpen, HelpCircle, School } from 'lucide-react'
 import type { SchoolItem } from '../types'
+import { SchoolDocsModal } from './SchoolDocsModal'
 
 interface SchoolCardProps {
   item: SchoolItem
@@ -8,16 +9,7 @@ interface SchoolCardProps {
 }
 
 export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) => {
-  const handleDocClick = (e: React.MouseEvent<HTMLAnchorElement>, link?: string, type?: string) => {
-    if (!link || link.trim() === '') {
-      e.preventDefault()
-      if (onMissingLink) {
-        onMissingLink(item.school, type || 'Dokumen')
-      } else {
-        alert(`Link ${type || 'dokumen'} untuk ${item.school} belum tersedia. Coba tanya masdon.`)
-      }
-    }
-  }
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const defaultWa = '628112645659'
   const waTarget = item.pengampu && item.pengampu.trim() !== ''
@@ -30,95 +22,49 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
   const helpUrl = `https://wa.me/${formattedWa}?text=${waMessage}`
 
   return (
-    <div className="school-card">
-      <div className="school-card-header">
-        <div className="school-title-wrap">
-          <div className="school-icon-badge">
-            <School size={22} className="school-icon" />
+    <>
+      <div className="school-card">
+        <div className="school-card-header">
+          <div className="school-title-wrap">
+            <div className="school-icon-badge">
+              <School size={22} className="school-icon" />
+            </div>
+            <h3 className="school-name">{item.school}</h3>
           </div>
-          <h3 className="school-name">{item.school}</h3>
+        </div>
+
+        <div className="school-card-body">
+          <div className="buttons-row-two">
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(true)}
+              className="card-btn btn-buka-dokumen"
+              title={`Buka daftar dokumen ${item.school}`}
+            >
+              <FolderOpen size={19} className="btn-icon" />
+              <span>Buka Dokumen</span>
+            </button>
+
+            <a
+              href={helpUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-btn btn-hubungi"
+              title="Hubungi admin melalui WhatsApp"
+            >
+              <HelpCircle size={19} className="btn-icon" />
+              <span>Hubungi Kami</span>
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="school-card-body">
-        <div className="buttons-row-two">
-          <a
-            href={item.kurikulumLink || '#'}
-            target={item.kurikulumLink ? '_blank' : undefined}
-            rel="noopener noreferrer"
-            onClick={(e) => handleDocClick(e, item.kurikulumLink, 'Kurikulum')}
-            className="card-btn btn-kurikulum"
-            title={item.kurikulumLink ? 'Buka link upload kurikulum' : 'Link upload belum diisi'}
-          >
-            <Upload size={18} className="btn-icon" />
-            <span>Kurikulum</span>
-          </a>
-
-          <a
-            href={item.pimeLink || '#'}
-            target={item.pimeLink ? '_blank' : undefined}
-            rel="noopener noreferrer"
-            onClick={(e) => handleDocClick(e, item.pimeLink, 'PIME')}
-            className="card-btn btn-pime"
-            title={item.pimeLink ? 'Buka link upload PIME' : 'Link upload belum diisi'}
-          >
-            <FileText size={18} className="btn-icon" />
-            <span>PIME</span>
-          </a>
-        </div>
-
-        <div className="buttons-row-two">
-          <a
-            href={item.asetLink || '#'}
-            target={item.asetLink ? '_blank' : undefined}
-            rel="noopener noreferrer"
-            onClick={(e) => handleDocClick(e, item.asetLink, 'Aset Sekolah')}
-            className="card-btn btn-aset"
-            title={item.asetLink ? 'Buka data aset sekolah' : 'Link aset sekolah belum diisi'}
-          >
-            <Building2 size={18} className="btn-icon" />
-            <span>Aset Sekolah</span>
-          </a>
-
-          <a
-            href={item.pegawaiLink || '#'}
-            target={item.pegawaiLink ? '_blank' : undefined}
-            rel="noopener noreferrer"
-            onClick={(e) => handleDocClick(e, item.pegawaiLink, 'Data Pegawai')}
-            className="card-btn btn-pegawai"
-            title={item.pegawaiLink ? 'Buka data pegawai (PSDM)' : 'Link data pegawai belum diisi'}
-          >
-            <Users size={18} className="btn-icon" />
-            <span>Data Pegawai</span>
-          </a>
-
-          <a
-            href={item.supEvLink || '#'}
-            target={item.supEvLink ? '_blank' : undefined}
-            rel="noopener noreferrer"
-            onClick={(e) => handleDocClick(e, item.supEvLink, 'Supervisi & Evaluasi')}
-            className="card-btn btn-supev"
-            title={item.supEvLink ? 'Buka data supervisi & evaluasi' : 'Link supervisi & evaluasi belum diisi'}
-          >
-            <ClipboardCheck size={18} className="btn-icon" />
-            <span>Supervisi & Evaluasi</span>
-          </a>
-        </div>
-
-        <div className="buttons-row-one">
-          <a
-            href={helpUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="card-btn btn-hubungi"
-            title="Hubungi admin melalui WhatsApp"
-          >
-            <HelpCircle size={19} className="btn-icon" />
-            <span>Hubungi Kami</span>
-          </a>
-        </div>
-      </div>
-    </div>
+      <SchoolDocsModal
+        school={isModalOpen ? item : null}
+        onClose={() => setIsModalOpen(false)}
+        onMissingLink={onMissingLink}
+      />
+    </>
   )
 }
 
