@@ -1,15 +1,12 @@
 import React, { useState } from 'react'
-import { FolderOpen, HelpCircle, School } from 'lucide-react'
-import type { SchoolItem } from '../types'
-import { SchoolDocsModal } from './SchoolDocsModal'
-
-interface SchoolCardProps {
-  item: SchoolItem
-  onMissingLink?: (schoolName: string, docType: string) => void
-}
+import { FolderOpen, HelpCircle, School, Video } from 'lucide-react'
+import type { SchoolCardProps } from '../types'
+import { SchoolDocsModal } from './DocsModal'
+import { ZoomModal } from './ZoomModal'
 
 export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isDocsModalOpen, setIsDocsModalOpen] = useState(false)
+  const [isZoomModalOpen, setIsZoomModalOpen] = useState(false)
 
   const defaultWa = '628112645659'
   const waTarget = item.pengampu && item.pengampu.trim() !== ''
@@ -37,7 +34,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
           <div className="buttons-row-two">
             <button
               type="button"
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => setIsDocsModalOpen(true)}
               className="card-btn btn-buka-dokumen"
               title={`Buka daftar dokumen ${item.school}`}
             >
@@ -45,6 +42,18 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
               <span>Buka Dokumen</span>
             </button>
 
+            <button
+              type="button"
+              onClick={() => setIsZoomModalOpen(true)}
+              className="card-btn btn-buka-zoom"
+              title={`Buka jadwal Zoom ${item.school}`}
+            >
+              <Video size={19} className="btn-icon" />
+              <span>Buka Zoom</span>
+            </button>
+          </div>
+
+          <div className="buttons-row-one">
             <a
               href={helpUrl}
               target="_blank"
@@ -60,9 +69,14 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
       </div>
 
       <SchoolDocsModal
-        school={isModalOpen ? item : null}
-        onClose={() => setIsModalOpen(false)}
+        school={isDocsModalOpen ? item : null}
+        onClose={() => setIsDocsModalOpen(false)}
         onMissingLink={onMissingLink}
+      />
+
+      <ZoomModal
+        school={isZoomModalOpen ? item : null}
+        onClose={() => setIsZoomModalOpen(false)}
       />
     </>
   )

@@ -21,6 +21,10 @@ export interface SchoolItem {
   asetLink?: string;
   pegawaiLink?: string;
   supEvLink?: string;
+  zoomDate?: string;
+  zoomTime?: string;
+  zoomLink?: string;
+  zoomDescription?: string;
   pengampu: string;
 }
 
@@ -49,3 +53,22 @@ export interface SchoolDocMenu {
   btnClass: string
 }
 
+export interface LinkZoom {
+  id: number;
+  jenjang: Jenjang;
+  school: string;
+  date: string;
+  time: string;
+  link: string;
+  description?: string;
+}
+
+export interface ZoomModalProps {
+  school: SchoolItem | null
+  onClose: () => void
+}
+
+export interface SchoolCardProps {
+  item: SchoolItem
+  onMissingLink?: (schoolName: string, docType: string) => void
+}

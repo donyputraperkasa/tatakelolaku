@@ -1,6 +1,7 @@
 import asetSchools from './aset';
 import psdmSchools from './psdm';
 import supEvSchools from './sup-ev';
+import zoomSchools from './zoom';
 import type { SchoolItem, DocItem } from '../types';
 
 export type { SchoolItem, DocItem };
@@ -316,13 +317,21 @@ const rawDocs: SchoolItem[] = [
 const asetMap = new Map(asetSchools.map((item) => [item.school.trim(), item.link]));
 const psdmMap = new Map(psdmSchools.map((item) => [item.school.trim(), item.link]));
 const supEvMap = new Map(supEvSchools.map((item) => [item.school.trim(), item.link]));
+const zoomMap = new Map(zoomSchools.map((item) => [item.school.trim(), item]));
 
-export const docs: SchoolItem[] = rawDocs.map((school) => ({
-  ...school,
-  asetLink: asetMap.get(school.school.trim()) || '',
-  pegawaiLink: psdmMap.get(school.school.trim()) || '',
-  supEvLink: supEvMap.get(school.school.trim()) || '',
-}));
+export const docs: SchoolItem[] = rawDocs.map((school) => {
+  const zoomData = zoomMap.get(school.school.trim());
+  return {
+    ...school,
+    asetLink: asetMap.get(school.school.trim()) || '',
+    pegawaiLink: psdmMap.get(school.school.trim()) || '',
+    supEvLink: supEvMap.get(school.school.trim()) || '',
+    zoomDate: zoomData?.date || '',
+    zoomTime: zoomData?.time || '',
+    zoomLink: zoomData?.link || '',
+    zoomDescription: zoomData?.description || '',
+  };
+});
 
 export const data = docs;
 export default docs;
