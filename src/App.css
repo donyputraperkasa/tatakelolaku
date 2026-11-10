@@ -3,6 +3,13 @@
   Inspired by zoom-schedule with custom sketch card layout
    ======================================================== */
 
+/* Global Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* App Container */
 .app-container {
   width: 100%;
@@ -988,7 +995,7 @@
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .app-container {
-    padding: 32px 20px 60px;
+    padding: 32px 26px 60px;
   }
 
   .schools-grid {
@@ -1005,6 +1012,7 @@
   .search-input-wrapper {
     width: 100%;
     min-width: unset;
+    box-sizing: border-box;
   }
 
   .filter-chips-wrapper {
@@ -1015,7 +1023,7 @@
 
 @media (max-width: 768px) {
   .app-container {
-    padding: 24px 16px 50px;
+    padding: 24px 36px 50px;
   }
 
   .header-logo {
@@ -1088,6 +1096,10 @@
 }
 
 @media (max-width: 480px) {
+  .app-container {
+    padding: 20px 22px 46px;
+  }
+
   .dashboard-grid {
     grid-template-columns: 1fr;
     gap: 10px;
