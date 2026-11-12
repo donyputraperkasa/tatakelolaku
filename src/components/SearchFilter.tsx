@@ -1,19 +1,6 @@
 import React from 'react'
 import { Search, X } from 'lucide-react'
-
-interface SearchFilterProps {
-  search: string
-  onSearchChange: (value: string) => void
-  selectedCategory: string
-  onCategoryChange: (category: string) => void
-  counts: {
-    total: number
-    tk: number
-    sd: number
-    smp: number
-    smak: number
-  }
-}
+import type { SearchFilterProps } from '../types'
 
 export const SearchFilter: React.FC<SearchFilterProps> = ({
   search,

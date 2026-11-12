@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { FileCheck2, Info, Video, FileSpreadsheet } from 'lucide-react'
 import { RecordModal } from './RecordModal'
-
-interface AnnouncementProps {
-  onMissingRecordLink?: (title: string) => void
-}
+import type { AnnouncementProps } from '../types'
 
 export const Announcement: React.FC<AnnouncementProps> = ({ onMissingRecordLink }) => {
   const [isRecordModalOpen, setIsRecordModalOpen] = useState(false)

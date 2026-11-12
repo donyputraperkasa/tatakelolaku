@@ -1,11 +1,7 @@
 import React from 'react'
 import { Video, Play, AlertCircle } from 'lucide-react'
-import type { RecordingSession } from '../types'
+import type { RecordSessionListProps } from '../types'
 
-interface RecordSessionListProps {
-  sessions: RecordingSession[]
-  onSelectSession: (session: RecordingSession) => void
-}
 
 export const RecordSessionList: React.FC<RecordSessionListProps> = ({
   sessions,

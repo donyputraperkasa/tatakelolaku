@@ -1,12 +1,8 @@
 import React from 'react'
 import { ExternalLink, AlertCircle } from 'lucide-react'
-import type { RecordingSession } from '../types'
+import type { RecordVideoViewProps } from '../types'
 
-interface RecordVideoViewProps {
-  session: RecordingSession
-}
-
-export function getEmbedUrl(url?: string): string | null {
+function getEmbedUrl(url?: string): string | null {
   if (!url || url.trim() === '') return null
   const trimmed = url.trim()
 

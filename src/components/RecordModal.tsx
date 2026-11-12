@@ -1,28 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { X, Video, ArrowLeft } from 'lucide-react'
 import { recordingSessions } from '../data/record'
-import type { RecordingSession } from '../types'
+import type { RecordingSession, RecordModalProps } from '../types'
 import { RecordVideoView } from './RecordVideoView'
 import { RecordSessionList } from './RecordSessionList'
-
-interface RecordModalProps {
-  isOpen: boolean
-  onClose: () => void
-  onMissingLink?: (title: string) => void
-}
 
 export const RecordModal: React.FC<RecordModalProps> = ({ isOpen, onClose, onMissingLink }) => {
   const [selectedSession, setSelectedSession] = useState<RecordingSession | null>(null)
 
-  useEffect(() => {
-    if (!isOpen) setSelectedSession(null)
-  }, [isOpen])
+  const handleClose = useCallback(() => {
+    setSelectedSession(null)
+    onClose()
+  }, [onClose])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         if (selectedSession) setSelectedSession(null)
-        else onClose()
+        else handleClose()
       }
     }
     if (isOpen) {
@@ -33,7 +28,7 @@ export const RecordModal: React.FC<RecordModalProps> = ({ isOpen, onClose, onMis
       document.body.style.overflow = ''
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [isOpen, onClose, selectedSession])
+  }, [isOpen, handleClose, selectedSession])
 
   if (!isOpen) return null
 
@@ -44,7 +39,7 @@ export const RecordModal: React.FC<RecordModalProps> = ({ isOpen, onClose, onMis
   }
 
   return (
-    <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
+    <div className="modal-backdrop" onClick={handleClose} role="dialog" aria-modal="true">
       <div
         className={`modal-container ${selectedSession ? 'video-mode' : ''}`}
         onClick={(e) => e.stopPropagation()}
@@ -76,7 +71,7 @@ export const RecordModal: React.FC<RecordModalProps> = ({ isOpen, onClose, onMis
               </div>
             </>
           )}
-          <button type="button" className="modal-close-btn" onClick={onClose} aria-label="Tutup">
+          <button type="button" className="modal-close-btn" onClick={handleClose} aria-label="Tutup">
             <X size={20} />
           </button>
         </div>
@@ -93,12 +88,12 @@ export const RecordModal: React.FC<RecordModalProps> = ({ isOpen, onClose, onMis
               <button type="button" className="modal-footer-close-btn" onClick={() => setSelectedSession(null)}>
                 ← Ganti Sesi Rekaman
               </button>
-              <button type="button" className="modal-footer-close-btn primary" onClick={onClose}>
+              <button type="button" className="modal-footer-close-btn primary" onClick={handleClose}>
                 Selesai Menonton
               </button>
             </>
           ) : (
-            <button type="button" className="modal-footer-close-btn" onClick={onClose} style={{ marginLeft: 'auto' }}>
+            <button type="button" className="modal-footer-close-btn" onClick={handleClose} style={{ marginLeft: 'auto' }}>
               Tutup
             </button>
           )}

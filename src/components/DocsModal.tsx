@@ -1,14 +1,8 @@
 import React, { useEffect } from 'react'
 import { X, School } from 'lucide-react'
-import type { SchoolItem } from '../types'
+import type { SchoolDocsModalProps } from '../types'
 import { getSchoolDocMenus } from '../data/doc-menus'
 import { SchoolDocItem } from './SchoolDocItem'
-
-interface SchoolDocsModalProps {
-  school: SchoolItem | null
-  onClose: () => void
-  onMissingLink?: (schoolName: string, docType: string) => void
-}
 
 export const SchoolDocsModal: React.FC<SchoolDocsModalProps> = ({
   school,

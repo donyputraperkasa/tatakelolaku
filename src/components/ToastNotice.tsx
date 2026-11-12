@@ -1,10 +1,6 @@
 import React from 'react'
 import { AlertCircle, X } from 'lucide-react'
-
-interface ToastNoticeProps {
-  message: string | null
-  onClose: () => void
-}
+import type { ToastNoticeProps } from '../types'
 
 export const ToastNotice: React.FC<ToastNoticeProps> = ({ message, onClose }) => {
   if (!message) return null

@@ -1,11 +1,6 @@
 import React from 'react'
 import { School, Layers, SearchCheck } from 'lucide-react'
-
-interface DashboardStatsProps {
-  totalSchools: number
-  totalJenjang: number
-  displayedCount: number
-}
+import type { DashboardStatsProps } from '../types'
 
 export const DashboardStats: React.FC<DashboardStatsProps> = ({
   totalSchools,

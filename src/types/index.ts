@@ -72,3 +72,65 @@ export interface SchoolCardProps {
   item: SchoolItem
   onMissingLink?: (schoolName: string, docType: string) => void
 }
+
+export interface ToastNoticeProps {
+  message: string | null
+  onClose: () => void
+}
+
+export interface SearchFilterProps {
+  search: string
+  onSearchChange: (value: string) => void
+  selectedCategory: string
+  onCategoryChange: (category: string) => void
+  counts: {
+    total: number
+    tk: number
+    sd: number
+    smp: number
+    smak: number
+  }
+}
+
+export interface SchoolListProps {
+  schools: SchoolItem[]
+  search: string
+  selectedCategory: string
+  onMissingLink: (schoolName: string, docType: string) => void
+}
+
+export interface SchoolDocItemProps {
+  menu: SchoolDocMenu
+  onDocClick: (e: React.MouseEvent<HTMLAnchorElement>, link?: string, label?: string) => void
+}
+
+export interface RecordVideoViewProps {
+  session: RecordingSession
+}
+
+export interface RecordSessionListProps {
+  sessions: RecordingSession[]
+  onSelectSession: (session: RecordingSession) => void
+}
+
+export interface RecordModalProps {
+  isOpen: boolean
+  onClose: () => void
+  onMissingLink?: (title: string) => void
+}
+
+export interface SchoolDocsModalProps {
+  school: SchoolItem | null
+  onClose: () => void
+  onMissingLink?: (schoolName: string, docType: string) => void
+}
+
+export interface DashboardStatsProps {
+  totalSchools: number
+  totalJenjang: number
+  displayedCount: number
+}
+
+export interface AnnouncementProps {
+  onMissingRecordLink?: (title: string) => void
+}

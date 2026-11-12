@@ -1,14 +1,8 @@
 import React from 'react'
 import { School } from 'lucide-react'
 import { SchoolCard } from './SchoolCard'
-import type { SchoolItem } from '../types'
+import type { SchoolListProps } from '../types'
 
-interface SchoolListProps {
-  schools: SchoolItem[]
-  search: string
-  selectedCategory: string
-  onMissingLink: (schoolName: string, docType: string) => void
-}
 
 export const SchoolList: React.FC<SchoolListProps> = ({
   schools,

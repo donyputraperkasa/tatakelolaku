@@ -1,11 +1,7 @@
 import React from 'react'
 import { ExternalLink, AlertCircle } from 'lucide-react'
-import type { SchoolDocMenu } from '../types'
+import type { SchoolDocItemProps} from '../types'
 
-interface SchoolDocItemProps {
-  menu: SchoolDocMenu
-  onDocClick: (e: React.MouseEvent<HTMLAnchorElement>, link?: string, label?: string) => void
-}
 
 export const SchoolDocItem: React.FC<SchoolDocItemProps> = ({ menu, onDocClick }) => {
   const IconComponent = menu.icon
