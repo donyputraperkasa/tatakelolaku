@@ -11,7 +11,7 @@ import {
   CreateByMe,
   FloatingContact,
   GlobalLoading,
-} from './components/satelyd-official'
+} from './components/brand-kit'
 
 export function App() {
   const [search, setSearch] = useState('')
