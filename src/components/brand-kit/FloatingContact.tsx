@@ -1,6 +1,6 @@
 import { Headphones, MessageCircle, X } from 'lucide-react'
 import { useState } from 'react'
-import catImg from '../../assets/cat.png'
+import catImg from './cat.png'
 
 export function FloatingContact() {
   const [isOpen, setIsOpen] = useState(false)

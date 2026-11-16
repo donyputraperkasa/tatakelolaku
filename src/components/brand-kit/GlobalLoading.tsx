@@ -1,5 +1,5 @@
 import React from 'react'
-import catImg from '../../assets/cat.png'
+import catImg from './cat.png'
 
 interface GlobalLoadingProps {
   isLoading: boolean
