@@ -1,0 +1,94 @@
+/* ========================================================
+   SATELYD OFFICIAL - BRAND SIGNATURE KIT
+   1. Satelyd Signature Blue Variables & Button Accent
+   2. Global Loading ("bentar yaaa" + Cat + Yellow Bar)
+   3. Global Toast Notice
+   4. Floating Contact
+   5. Footer "developed by : satelyd.id"
+   ======================================================== */
+
+:root {
+  --satelyd-blue-dark: #1f4f8f;
+  --satelyd-blue: #0284c7;
+  --satelyd-blue-soft: #f0f9ff;
+  --satelyd-blue-border: #bae6fd;
+}
+
+/* Global Loading ("bentar yaaa") */
+.satelyd-loading-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: toastFadeIn 0.2s ease-out;
+}
+
+.satelyd-loading-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.satelyd-loading-cat {
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  animation: satelydCatBounce 1s ease-in-out infinite alternate;
+}
+
+.satelyd-loading-text {
+  margin: 0 0 6px;
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.3px;
+}
+
+.satelyd-loading-bar-track {
+  width: 210px;
+  height: 32px;
+  border: 3.5px solid #0f172a;
+  border-radius: 10px;
+  padding: 4px;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.satelyd-loading-bar-fill {
+  height: 100%;
+  width: 55%;
+  background: #fcd34d;
+  border-radius: 5px;
+  animation: satelydBarLoad 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes satelydCatBounce {
+  from {
+    transform: translateY(0) rotate(-2deg);
+  }
+  to {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+@keyframes satelydBarLoad {
+  0% {
+    width: 22%;
+  }
+  100% {
+    width: 88%;
+  }
+}

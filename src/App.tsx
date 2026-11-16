@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import './App.css'
 import { docs as initialSchools } from './data/docs'
 import { Header } from './components/Header'
@@ -6,15 +6,24 @@ import { DashboardStats } from './components/DashboardStats'
 import { SearchFilter } from './components/SearchFilter'
 import { Announcement } from './components/Announcement'
 import { SchoolList } from './components/SchoolList'
-import { ToastNotice } from './components/ToastNotice'
-import CreateByMe from './components/CreateByMe'
-import FloatingContact from './components/floating-contact'
+import {
+  ToastNotice,
+  CreateByMe,
+  FloatingContact,
+  GlobalLoading,
+} from './components/satelyd-official'
 
 export function App() {
   const [search, setSearch] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('')
   const [toastMessage, setToastMessage] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
   const toastTimeoutRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setIsLoading(false), 750)
+    return () => clearTimeout(timer)
+  }, [])
 
   const counts = useMemo(() => {
     let tk = 0
@@ -61,6 +70,7 @@ export function App() {
 
   return (
     <div className="app-container">
+      <GlobalLoading isLoading={isLoading} />
       <ToastNotice message={toastMessage} onClose={() => setToastMessage(null)} />
       <Header />
       <DashboardStats
