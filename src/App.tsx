@@ -61,11 +61,11 @@ export function App() {
   }
 
   const handleMissingLink = (schoolName: string, docType: string) => {
-    showToast(`Link ${docType} untuk ${schoolName} belum tersedia. Coba tanyakan masdon.`)
+    showToast(`Link ${docType} untuk ${schoolName} belum tersedia`)
   }
 
   const handleMissingRecordLink = (title: string) => {
-    showToast(`Link rekaman untuk "${title}" belum tersedia di Google Drive. Coba tanyakan masdon.`)
+    showToast(`Link rekaman untuk "${title}" belum tersedia`)
   }
 
   return (

@@ -77,6 +77,7 @@ export const SchoolCard: React.FC<SchoolCardProps> = ({ item, onMissingLink }) =
       <ZoomModal
         school={isZoomModalOpen ? item : null}
         onClose={() => setIsZoomModalOpen(false)}
+        onMissingLink={onMissingLink}
       />
     </>
   )

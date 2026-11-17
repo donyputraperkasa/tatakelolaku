@@ -25,6 +25,7 @@ export interface SchoolItem {
   zoomTime?: string;
   zoomLink?: string;
   zoomDescription?: string;
+  zoomRecord?: string;
   pengampu: string;
 }
 
@@ -61,11 +62,13 @@ export interface LinkZoom {
   time: string;
   link: string;
   description?: string;
+  record: string;
 }
 
 export interface ZoomModalProps {
   school: SchoolItem | null
   onClose: () => void
+  onMissingLink?: (schoolName: string, docType: string) => void
 }
 
 export interface SchoolCardProps {

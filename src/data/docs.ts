@@ -330,6 +330,7 @@ export const docs: SchoolItem[] = rawDocs.map((school) => {
     zoomTime: zoomData?.time || '',
     zoomLink: zoomData?.link || '',
     zoomDescription: zoomData?.description || '',
+    zoomRecord: zoomData?.record || '',
   };
 });
 

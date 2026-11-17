@@ -505,7 +505,7 @@
 
 .card-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(154, 151, 151, 0.05);
 }
 
 .card-btn:active {
@@ -703,6 +703,23 @@
   box-shadow: 0 6px 16px rgba(2, 132, 199, 0.2);
 }
 
+.btn-zoom-record {
+  background: #fff1f2;
+  color: #e11d48;
+  border-color: #fecdd3;
+  min-height: 50px;
+}
+
+.btn-zoom-record:hover {
+  background: #ffe4e6;
+  border-color: #fda4af;
+  box-shadow: 0 6px 16px rgba(225, 29, 72, 0.12);
+}
+
+.btn-zoom-record:active {
+  background: #fecdd3;
+}
+
 .zoom-empty-state {
   display: flex;
   flex-direction: column;
@@ -730,7 +747,7 @@
   margin: 0;
   font-size: 15px;
   font-weight: 600;
-  color: #334155;
+  color: #000000;
 }
 
 .zoom-empty-sub {
@@ -841,14 +858,14 @@
   font-size: 15px;
 }
 
-/* Centered Alert / Toast Notification */
+/* Standard Toast Notification (Centered Plain White) */
 .toast-backdrop {
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background-color: rgba(15, 23, 42, 0.45);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background-color: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -866,18 +883,20 @@
 }
 
 .toast-notice {
-  background: #1e293b;
-  color: #ffffff;
+  background: #ffffff;
+  color: #1e293b;
   padding: 16px 20px;
   border-radius: 16px;
+  border: 1px solid #e2e8f0;
   font-size: 14px;
   font-weight: 500;
-  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.2);
   display: flex;
   align-items: center;
   gap: 12px;
   max-width: 460px;
   width: 100%;
+  box-sizing: border-box;
   animation: centerAlertIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -888,10 +907,6 @@
   flex-shrink: 0;
 }
 
-.toast-icon {
-  color: #facc15;
-}
-
 .toast-text-wrap {
   flex: 1;
   min-width: 0;
@@ -900,14 +915,14 @@
 .toast-text {
   font-size: 14px;
   line-height: 1.5;
-  color: #f8fafc;
+  color: #1e293b;
   display: block;
 }
 
 .toast-close-btn {
   background: none;
   border: none;
-  color: #94a3b8;
+  color: #64748b;
   cursor: pointer;
   padding: 6px;
   display: flex;
@@ -920,8 +935,8 @@
 }
 
 .toast-close-btn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.12);
+  color: #0f172a;
+  background: #f1f5f9;
 }
 
 @keyframes centerAlertIn {
@@ -969,8 +984,15 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .floating-help-header {
@@ -1086,6 +1108,7 @@
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   border: none;
 }
+
 /* Footer Developer Signature (Samar-samar / Faint & Minimalist) */
 .footer-developer-wrapper {
   display: flex;
@@ -1539,7 +1562,8 @@
 .record-player-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio */
   background: #090d16;
   border-radius: 14px;
   overflow: hidden;
@@ -1610,6 +1634,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1620,6 +1645,7 @@
     opacity: 0;
     transform: scale(0.95) translateY(6px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);

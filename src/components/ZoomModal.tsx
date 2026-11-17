@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { X, Video, ExternalLink, CalendarX2, CalendarDays, Clock } from 'lucide-react'
+import { X, Video, ExternalLink, CalendarX2, CalendarDays, Clock, PlayCircle } from 'lucide-react'
 import type { ZoomModalProps } from '../types'
 
-export const ZoomModal: React.FC<ZoomModalProps> = ({ school, onClose }) => {
+export const ZoomModal: React.FC<ZoomModalProps> = ({ school, onClose, onMissingLink }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
@@ -23,7 +23,16 @@ export const ZoomModal: React.FC<ZoomModalProps> = ({ school, onClose }) => {
   const hasZoomDate = Boolean(school.zoomDate && school.zoomDate.trim() !== '')
   const hasZoomTime = Boolean(school.zoomTime && school.zoomTime.trim() !== '')
   const hasZoomDesc = Boolean(school.zoomDescription && school.zoomDescription.trim() !== '')
+  const hasZoomRecord = Boolean(school.zoomRecord && school.zoomRecord.trim() !== '')
   const hasSchedule = hasZoomDate || hasZoomTime || hasZoomLink
+
+  const handleRecordClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!hasZoomRecord) {
+      e.preventDefault()
+      if (onMissingLink) onMissingLink(school.school, 'Rekaman Zoom')
+      else alert(`Link Rekaman Zoom untuk ${school.school} belum tersedia.`)
+    }
+  }
 
   return (
     <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
@@ -62,12 +71,7 @@ export const ZoomModal: React.FC<ZoomModalProps> = ({ school, onClose }) => {
               )}
               {hasZoomDesc && <p className="zoom-modal-desc">{school.zoomDescription}</p>}
               {hasZoomLink ? (
-                <a
-                  href={school.zoomLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="card-btn btn-zoom-start"
-                >
+                <a href={school.zoomLink} target="_blank" rel="noopener noreferrer" className="card-btn btn-zoom-start">
                   <Video size={19} className="btn-icon" />
                   <span>Mulai Zoom</span>
                   <ExternalLink size={16} />
@@ -78,6 +82,16 @@ export const ZoomModal: React.FC<ZoomModalProps> = ({ school, onClose }) => {
                   <span>Mulai Zoom (Link Menyusul)</span>
                 </button>
               )}
+              <a
+                href={hasZoomRecord ? school.zoomRecord : '#'}
+                target={hasZoomRecord ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                onClick={handleRecordClick}
+                className="card-btn btn-zoom-record"
+              >
+                <PlayCircle size={19} className="btn-icon" />
+                <span>Lihat Record</span>
+              </a>
             </div>
           ) : (
             <div className="zoom-empty-state">
